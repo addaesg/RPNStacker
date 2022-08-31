@@ -4,6 +4,7 @@ import Suporte.StkScanner;
 import java.util.EmptyStackException;
 import java.util.Scanner;
 
+// Toda a manipulação da Stack e Evalições de expressões ocorrem no arquivo: evaluate.java
 public class Main{
     public static void main(String[] args)
     {
