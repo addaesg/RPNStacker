@@ -1,4 +1,4 @@
-## [Task 02 - RPNStacker Adhoc]
+## [Task 02 - RPNStacker Manual/Simple Scanning]
 ### 1. Requisitos da Atividade
 
 > Evoluir o projeto da Task 01 para implementar uma feature de scanning:
