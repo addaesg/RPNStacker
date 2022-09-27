@@ -4,7 +4,8 @@ import RPN.tokens.Token;
 
 import java.util.*;
 
-// Toda a manipulação da Stack e Evalições de expressões ocorrem na classe: evaluate
+// StkScanner é responsável pelo scan & gerar tokens
+// Evaluate é responsável por evaliar as expressões de tokens.
 public class Main{
     public static void main(String[] args)
     {
