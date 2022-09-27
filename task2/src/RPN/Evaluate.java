@@ -1,8 +1,17 @@
+package RPN;
+import RPN.tokens.Token;
+import RPN.tokens.TokenType;
+import RPN.opMap.OpMap;
+
 import java.util.*;
 
+/*
+* Evaluate: Classe responsável por calcular o valor de uma dada expressão de Tokens.
+*           levantando erro caso seja uma expressão inválida.
+* */
 public class Evaluate {
     public Stack<Token> stk = new Stack<>();
-    private final StkScanner.OpMap op = new StkScanner.OpMap();
+    private final OpMap op = new OpMap();
     public Evaluate(){}
 
     // Evalia uma lista de Tokens.

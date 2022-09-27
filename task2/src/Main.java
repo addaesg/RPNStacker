@@ -1,5 +1,7 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import RPN.Evaluate;
+import RPN.StkScanner;
+import RPN.tokens.Token;
+
 import java.util.*;
 
 // Toda a manipulação da Stack e Evalições de expressões ocorrem na classe: evaluate
@@ -23,11 +25,6 @@ public class Main{
         } catch (Exception e){
             //  Aconteceu um erro
             System.out.println("Exiting...");
-        }
-    }
-    public static class InvalidCharException extends Exception {
-        public InvalidCharException(String errorMessage) {
-            super(errorMessage);
         }
     }
 }

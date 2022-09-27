@@ -1,14 +1,28 @@
+package RPN;
+
+import RPN.Exceptions.InvalidCharException;
+import RPN.opMap.OpMap;
+import RPN.tokens.Token;
+import RPN.tokens.TokenType;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+
+/*
+* StkScanner:
+*     Classe responsável por:
+*       - 1. Lidar com arquivo stk de input.
+*       - 2. Scannear o arquivo e gerar os tokens correspondentes.
+*       - 3. Levanta erro se não conseguir identificar um token.
+* */
 public class StkScanner {
     private Scanner stkscanner;
     private final OpMap op = new OpMap();
 
     // Scanneia o arquivo e gera os tokens.
     // Levanta erro caso o token não seja reconhecido.
-    public ArrayList<Token> scan() throws Main.InvalidCharException {
+    public ArrayList<Token> scan() throws InvalidCharException {
         ArrayList<Token> tokens = new ArrayList<>();
         while (this.stkscanner.hasNextLine()) {
             String el = this.stkscanner.nextLine().strip();
@@ -16,7 +30,7 @@ public class StkScanner {
                 Token curToken = new Token(typeOf(el), el);
                 System.out.println(curToken);
                 tokens.add(curToken);
-            }catch (Main.InvalidCharException e) {
+            }catch (InvalidCharException e) {
                 System.out.println("Error: Unexpected character: '" + el + "'");
                 throw e;
             }
@@ -53,15 +67,14 @@ public class StkScanner {
         Helpers functions
      */
     // Retorna o tipo do token.
-    // Retorna um e
-    private TokenType typeOf(String el) throws Main.InvalidCharException {
+    private TokenType typeOf(String el) throws InvalidCharException {
         TokenType tType;
         try {
             Double.parseDouble(el);
             tType = TokenType.NUM;
         } catch (NumberFormatException e) { tType = op.getType(el); }
 
-        if (tType == TokenType.NOP ) throw new Main.InvalidCharException(el);
+        if (tType == TokenType.NOP ) throw new InvalidCharException(el);
         else return tType;
     }
 
@@ -76,47 +89,9 @@ public class StkScanner {
             throw e;
         }
     }
-
-    //
-    // Helper Class
-    //
-
-    // Class to handle mapping String to the TokenType and its OPERATOR
-    public static class OpMap {
-        private final Map<String, OpPair> opMap = new HashMap<>();
-
-        public OpMap() {
-            opMap.put("+", new OpPair(TokenType.PLUS , ((a, b) -> a + b)));
-            opMap.put("-", new OpPair(TokenType.MINUS, (a, b) -> a - b));
-            opMap.put("*", new OpPair(TokenType.STAR, (a, b) -> a * b));
-            opMap.put("/", new OpPair(TokenType.SLASH, (a, b) -> a / b));
-            opMap.put("^", new OpPair(TokenType.POW ,  Math::pow));
-        }
-
-        // Faz o calculo do da expressão
-        public Double calc(String o, double a, double b) {
-            return opMap.get(o).opExp.calc(a, b);
-        }
-
-        // Verifica se uma String representa um operando
-        public Boolean ehOperator(String o) {
-            return !Objects.isNull(opMap.get(o));
-        }
-
-        public TokenType getType(String o){ if(ehOperator(o)){ return opMap.get(o).opType;} return TokenType.NOP;};
-
-        // Interface para representar as operações aritiméticas (+, - , *, /, ^)
-        interface Operator {
-            Double calc(Double a, Double b);
-        }
-
-        public static class OpPair {
-            public TokenType opType;
-            public Operator opExp;
-            public OpPair(TokenType tType, Operator operator){
-                opType = tType;
-                opExp = operator;
-            }
-        }
-    }
 }
+
+//
+// Helper Class
+//
+

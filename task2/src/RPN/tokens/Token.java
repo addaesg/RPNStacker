@@ -1,3 +1,4 @@
+package RPN.tokens;
 /* *******************************************************************
  * Copyright (c) 2021 Universidade Federal de Pernambuco (UFPE).
  *
@@ -13,17 +14,24 @@
  *     Henrique Rebelo      initial design and implementation
  *     http://www.cin.ufpe.br/~hemr/
  * ******************************************************************/
+
+import RPN.tokens.TokenType;
+
 /**
  * @author Henrique Rebelo
  */
-public enum TokenType {
+public class Token {
 
-    // Literals.
-    NUM,
+    public final TokenType type; // token type
+    public final String lexeme; // token value
 
-    // Single-character tokens for operations.
-    MINUS, PLUS, SLASH, STAR, POW,
-    NOP,
-    EOF
+    public Token (TokenType type, String value) {
+        this.type = type;
+        this.lexeme = value;
+    }
 
+    @Override
+    public String toString() {
+        return "RPN.tokens.Token [type=" + this.type + ", lexeme=" + this.lexeme + "]";
+    }
 }
