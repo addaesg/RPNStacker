@@ -117,7 +117,7 @@ public class Main{
 
             // Faz o calculo do da expressão
             public Double calc(String o, double a, double b) {
-                return opMap.get(o).calc(a, b);
+                return opMap.get(o).calc(b, a);
             }
 
 
