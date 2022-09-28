@@ -24,7 +24,7 @@ public class Evaluate {
             }
             else{
                 try {
-                    double a = Double.parseDouble(stk.pop().lexeme), b = Double.parseDouble(stk.pop().lexeme);
+                    double b = Double.parseDouble(stk.pop().lexeme), a = Double.parseDouble(stk.pop().lexeme);
                     stk.push(new Token(TokenType.NUM, Double.toString(op.calc(token.lexeme, a, b))));
                 } catch ( NumberFormatException e){
                     System.out.println("Error: Expressão Inválida: Esperava um NUM, recebeu OPERATOR");
