@@ -10,7 +10,7 @@
 
 ### 2. Instruções:
 > Para Rodar o programa:
-> 1. Na pasta `src` da task2
+> 1. Na pasta `src` da task3
 > 2. Rode `javac Main.java`
 > 3. Rode `java Main`
 
