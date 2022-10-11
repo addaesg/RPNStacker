@@ -34,10 +34,19 @@ public class StkScanner {
     public ArrayList<Token> scan() throws InvalidCharException {
         while (this.stkscanner.hasNextLine()) {
             String el = this.stkscanner.nextLine().strip();
+            TokenType tokenType = null;
 
-            TokenType tokenType = Regex.getTokenType(el);  // Regex aqui.
+            // não é um caractere válido
+            if(!(Regex.isNum(el) ||  Regex.isOP(el))){
+                System.out.println("Error: Unexpected character: '" + el + "'");
+                throw new InvalidCharException(el);
+            }
+            else if (Regex.isNum(el)) // é um numero
+                tokenType = TokenType.NUM;
+            else // é um operador
+                tokenType = Regex.getTokenType(el);
+
             Token curToken = new Token(tokenType, el);
-
             tokens.add(curToken);
             System.out.println(curToken);
         }
@@ -72,15 +81,6 @@ public class StkScanner {
         return stkscan;
     }
 
-    private void teste(String token){
-        Boolean teste = Regex.isOP(token);
-        System.out.println(teste);
-
-        teste = Regex.isNum(token);
-        System.out.println(teste);
-    }
-
-
     private Scanner askForPath() throws FileNotFoundException {
         try {
             Scanner cin = new Scanner(System.in);
@@ -92,7 +92,5 @@ public class StkScanner {
             throw e;
         }
     }
-
-
 }
 

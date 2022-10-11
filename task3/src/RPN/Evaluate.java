@@ -31,10 +31,10 @@ public class Evaluate {
                     double b = Double.parseDouble(stk.pop().lexeme), a = Double.parseDouble(stk.pop().lexeme);
                     stk.push(new Token(TokenType.NUM, Double.toString(op.calc(token.type, a, b))));
                 } catch (NumberFormatException e) {
-                    System.out.println("Error: Expressão Inválida: Esperava um NUM, recebeu OPERATOR");
+                    System.out.println("Error: Expressão Inválida: Esperava um NUM, recebeu OPERATOR: " + token.lexeme);
                     throw e;
                 } catch (EmptyStackException o) {
-                    System.out.println("Error: Expressão Inválida: Esperava um número, recebeu NULL");
+                    System.out.println("Error: Expressão Inválida: Esperava um número, porém a stack estava vazia");
                     throw o;
                 }
             }
@@ -42,7 +42,7 @@ public class Evaluate {
         if (isOver()) {
             return this.resultado();
         } else {
-            System.out.println("Error: Expressão inválida: Existe mais de um Número na Stack após a sua evaliação");
+            System.out.println("Error: Expressão inválida: Existe mais de um elemento na Stack após a sua evaliação");
             throw new IllegalArgumentException();
         }
     }

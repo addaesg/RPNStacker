@@ -50,7 +50,7 @@ public class Regex {
     }
 
     public static boolean isNum(String token) {
-        return token.matches("(\\d)+");
+        return token.matches(REGEX_NUM);
     }
 
     public static boolean isOP(String token) {
