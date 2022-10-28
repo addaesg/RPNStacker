@@ -53,7 +53,7 @@ public class Postfix {
 	public static void main(String[] args) throws IOException {
 		args = new String [1];
 		//args [0] = "calc1.stk";
-		args [0] = "calc2.stk";
+		args [0] = "postfix/calc2.stk";
 
 		debugging = true; // for interpretation phases
 		run(args, debugging);
