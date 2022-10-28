@@ -15,7 +15,7 @@
 
 Acontecerá erros caso tente executar fora da pasta `src`, à exemplo de tentar executar direto no `postfix`.
 
-> Por padrão o arquivo RPN que está sendo avaliado é o `postfix/calc2.stk`
+> Por padrão basta escrever a expressão RPN para ela ser avaliada.
 
 ### 3. Info sobre o programa
 > * Existem 2 variaveis armazenadas: `x`e `y` onde `x = 15` e `y = 10`
