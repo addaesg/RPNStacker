@@ -101,7 +101,7 @@ public class Postfix {
 	 */
 	private static void run(String source) {
 		interpreter.env.put("y", "10");
-
+		interpreter.env.put("x", "15");
 		try {
 			Scanner scanner = new Scanner(source);
 			List<Token> tokens = scanner.scan();
@@ -138,6 +138,7 @@ public class Postfix {
 	// -------------------------------------------------------------
 	private static void run(String[] args, boolean debugging) throws IOException {
 		interpreter.env.put("y", "10");
+		interpreter.env.put("x", "15");
 		Postfix.debugging = debugging;
 		if(args.length > 0) {
 			for (String arg : args) {
