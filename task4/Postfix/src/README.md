@@ -9,7 +9,7 @@
 
 ### 2. Instruções:
 > Para Rodar o programa:
-> 1. Na pasta `src` da task3
+> 1. Na pasta `src` da task4
 > 2. Rode `javac postfix/Postfix.java`
 > 3. Rode `java postfix.Postfix`
 
