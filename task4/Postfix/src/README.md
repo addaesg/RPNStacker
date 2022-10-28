@@ -13,7 +13,7 @@
 > 2. Rode `javac postfix/Postfix.java`
 > 3. Rode `java postfix.Postfix`
 
-Acontecerá erros caso tente executar fora da pasta `src`, à exemplo de tentar executar direto no ``postfix`.
+Acontecerá erros caso tente executar fora da pasta `src`, à exemplo de tentar executar direto no `postfix`.
 
 > Por padrão o arquivo RPN que está sendo avaliado é o `postfix/calc2.stk`
 
